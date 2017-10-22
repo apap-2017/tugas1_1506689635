@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Add keluarga</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel = "stylesheet" href = "/css/bootstrap.min.css"/>
+</head>
+
+<body>
+<div th:replace = "fragments/fragment :: header" ></div>
+
+	<h1 class="page-header">Tambah Keluarga</h1>
+
+	<form th:action="${action}" method="post" th:object="${keluarga}">
+		<div>
+			<label for="alamat">Alamat</label> <input type="text" name="alamat" th:value="${keluarga.alamat}" />
+		</div>
+		<div>
+			<label for="RT">RT</label> <input type="text" name="RT" th:value="${RT}"/>
+		</div>
+		<div>
+			<label for="RW">RW</label> <input type="text" name="RW" th:value="${RW}"/>
+		</div>
+		<div>
+			<label for="kelurahan">Kelurahan/Desa</label> <input type="text" name="kelurahan" th:value="${idKelurahan}" />
+		</div>
+		<div>
+			<label for="kecamatan">Kecamatan</label> <input type="text" name="kecamatan" th:value="${namaKecamatan}"/>
+		</div>
+		<div>
+			<label for="kota">Kota</label> <input type="text" name="kota" th:value="${namaKota}"/>
+		</div>
+		<div>
+			<button type="submit" name="action" value="save">Simpan</button>
+		</div>
+	</form>
+
+</body>
+
+</html>
+

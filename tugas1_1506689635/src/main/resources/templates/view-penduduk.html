@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View Penduduk by NIK</title>
+        <link rel = "stylesheet" href = "/css/bootstrap.min.css"/>
+		<div th:replace = "fragments/fragment :: header" ></div>
+    </head>
+    <body>
+    	<div class="container-fluid">
+    	<div class="row">
+		  <div class="col-sm-6"><h4 th:text="'Lihat Data Penduduk - ' + ${penduduk.nik}"></h4></div>
+		  <div class="col-sm-6"></div>
+		</div>
+		<hr/>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'NIK'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.nik}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Nama'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.nama}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Tempat/Tanggal Lahir'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.tempatLahir} +',' + ${penduduk.tanggalLahir}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Alamat'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${keluarga.alamat}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'RT/RW'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${keluarga.rt} +'/' + ${keluarga.rw}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Kelurahan Desa'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${kelurahan.namaKelurahan}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Kecamatan'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${kecamatan.namaKecamatan}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Kota'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${kota.namaKota}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Golongan Darah'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.golonganDarah}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Agama'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.agama}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Status Perkawinan'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.statusPerkawinan}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Pekerjaan'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.pekerjaan}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Kewarganegaraan'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${penduduk.isWNI}==1?'WNI':'Asing'"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Status Kematian'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text="${penduduk.isWafat}==1?'Wafat':'Hidup'"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<hr/>
+		<form action="/penduduk/mati" method="post" th:object="${penduduk}">
+		<div>
+			<input type="hidden" name="nik" th:value="${penduduk.nik}" th:field="*{nik}" />
+		</div>
+		<div>
+			<button type="submit" name="action" value="submit">Penduduk Meninggal</button>
+		</div>
+		</form>
+       	</div>
+    </body>
+    <div th:replace = "fragments/fragment :: footer" ></div>
+</html>
+

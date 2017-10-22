@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View Keluarga by NKK</title>
+        <link rel = "stylesheet" href = "/css/bootstrap.min.css"/>
+		<div th:replace = "fragments/fragment :: header" ></div>
+    </head>
+    <body>
+    <div  class="container-fluid">
+    <div class="row">
+		  <div class="col-sm-6"><h4 th:text="'Lihat Data Keluarga - ' + ${keluarga.nomorKK}"></h4></div>
+		  <div class="col-sm-6"></div>
+		</div>
+		<hr/>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'NKK'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${keluarga.nomorKK}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Alamat'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${keluarga.alamat}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'RT/RW'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${keluarga.rt} +'/' + ${keluarga.rw}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Kelurahan Desa'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${kelurahan.namaKelurahan}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Kecamatan'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${kecamatan.namaKecamatan}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+		  <div class="col-sm-3"><h4 th:text="'Kota'"></h4></div>
+		  <div class="col-sm-3"><h4 th:text=" ${kota.namaKota}"></h4></div>
+		  <div class="col-sm-3"></div>
+		  <div class="col-sm-3"></div>
+		</div>
+		<hr/>
+		<div class= "table-responsive">
+		       	<table id="studentsTable" class="table table-hover" cellspacing="0" width="100%">
+		       		<thead>
+		       			<tr>
+		       				<th>No</th>
+		       				<th>Nama Lengkap</th>
+		       				<th>NIK</th>
+		       				<th>Jenis Kelamin</th>
+		       				<th>Tempat Lahir</th>
+		       				<th>Tanggal Lahir</th>
+		       				<th>Agama</th>
+		       				<th>Pekerjaan</th>
+		       				<th>Status Perkawinan</th>
+		       				<th>Status dalam Keluarga</th>
+		       				<th>Kewarganegaraan</th>
+		       			</tr>
+		       		</thead>
+		       		<tbody>
+			       		<tr th:each="anggota,iterationStatus: ${keluarga.listPenduduk}">
+				            <td th:text="'' + ${iterationStatus.count}"></td>
+					       	<td th:text="${anggota.nama}"></td>
+					       	<td th:text="${anggota.nik}"></td>
+					       	<td th:text="${anggota.jenisKelamin}==1?'Perempuan':'Laki-laki'"></td>
+					       	<td th:text="${anggota.tempatLahir}"></td>
+					       	<td th:text="${anggota.tanggalLahir}"></td>
+					       	<td th:text="${anggota.agama}"></td>
+					       	<td th:text="${anggota.pekerjaan}"></td>
+					       	<td th:text="${anggota.statusPerkawinan}"></td>
+					       	<td th:text="${anggota.statusDalamKeluarga}"></td>
+					       	<td th:text="${anggota.isWNI}>=1?'WNI':'Asing'"></td>
+				       	</tr>
+				    </tbody>
+				</table>
+			</div>
+		</div>
+    </body>
+    <div th:replace = "fragments/fragment :: footer" ></div>
+</html>

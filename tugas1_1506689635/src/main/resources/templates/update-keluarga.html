@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>update keluarga</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel = "stylesheet" href = "/css/bootstrap.min.css"/>
+</head>
+
+<body>
+<div th:replace = "fragments/fragment :: header" ></div>
+<div class = "container-fluid">
+	<h1 class="page-header">Update Keluarga</h1>
+
+	<form th:action="'/keluarga/ubah/' + ${keluarga.nomorKK}" method="post" th:object="${keluarga}">
+		<div>
+			 <input type="hidden" name="id" th:value="${keluarga.id}" th:field="*{id}" />
+		</div>
+		<div class = "row">
+			<div class = "col-sm-4">
+			<label for="alamat">Alamat :</label>
+			</div>
+			<div class = "col-sm-4">
+			<input  type="text" name="alamat" th:value="${keluarga.alamat}" th:field="*{alamat}"/>
+			</div>
+			<div class = "col-sm-4"></div>
+		</div>
+		<div class = "row">
+			<div class = "col-sm-4"><label for="RT">RT :</label></div>
+			<div class = "col-sm-4"><input type="text" name="RT" th:value="${keluarga.rt}" th:field="*{rt}"/></div>
+			<div class = "col-sm-4"></div>
+		</div>
+		<div class = "row">
+			<div class = "col-sm-4"><label for="RW">RW</label> </div>
+			<div class = "col-sm-4"><input type="text" name="RW" th:value="${keluarga.rw}" th:field="*{rw}"/></div>
+			<div class = "col-sm-4"></div>
+		</div>
+		<div class = "row">
+			<div class = "col-sm-4"><label for="kelurahan">Kelurahan/Desa</label></div>
+			<div class = "col-sm-4"> <input type="text" name="kelurahan" th:value="${keluarga.namaKelurahan}" th:field="*{namaKelurahan}"/></div>
+			<div class = "col-sm-4"></div>
+		</div>
+		<div class = "row">
+			<div class = "col-sm-4"><label for="kecamatan">Kecamatan</label></div> 
+			<div class = "col-sm-4"><input type="text" name="kecamatan" th:value="${keluarga.namaKecamatan}" th:field="*{namaKecamatan}"/></div>
+			<div class = "col-sm-4"></div>
+		</div>
+		<div class = "row">
+			<div class = "col-sm-4"><label for="kota">Kota</label></div>
+			<div class = "col-sm-4"> <input type="text" name="kota" th:value="${keluarga.namaKota}" th:field="*{namaKota}"/></div>
+			<div class = "col-sm-4"></div>
+		</div>
+		<div class = "row">
+			<button type="submit" name="action" value="update">Update</button>
+		</div>
+	</form>
+</div>
+</body>
+
+</html>
+

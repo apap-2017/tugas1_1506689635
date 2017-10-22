@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<title> Index </title>
+		<link rel = "stylesheet" href = "/css/bootstrap.min.css"/>
+	</head>
+	<body>
+		<div th:replace = "fragments/fragment :: header" ></div>
+		<div class="container-fluid">
+			<h3>Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h3>
+			<h5>Selamat datang di Sistem Kependudukan Online Provinsi DKI Jakarta</h5>
+			<hr/>
+			<h4>Lihat Data Penduduk Berdasarkan NIK</h4>
+			<br/>
+			<form action="/penduduk" method="get">
+		  		Masukkan Nomor Induk Kependudukan 
+		  		<input type="text" name="nik"/>
+		  		<br/>
+		  		<input type="submit" value="Lihat"/>
+			</form>
+			<hr/>
+			<h4>Lihat Data Keluarga Berdasarkan NKK</h4>
+			<br/>
+			<form action="/keluarga" method="get">
+		  		Masukkan Nomor Kartu Keluarga 
+		  		<input type="text" name="nkk"/>
+		  		<br/>
+		  		<input type="submit" value="Lihat"/>
+			</form>
+		</div>
+		<div th:replace = "fragments/fragment :: footer" ></div>
+	</body>
+</html>
